@@ -61,15 +61,6 @@ client.on("messageUpdate", (message) => {
   MessageSave(message, true)
 });
 
-if (message.content === '문아 죽어') {
-    const embed = new Discord.MessageEmbed();
-       embed.setTitle('ERR!');
-       embed.setDescription('봇 클라이언트 내부오류..');
-       embed.setColor('#ffffff');  //색깔
-       embed.setFooter('`${client.user.username} 님이 오류냄');
-    message.channel.send(embed);
-  }
-
 client.on('message', (message) => {
   MessageSave(message)
   if(message.author.bot) return;
