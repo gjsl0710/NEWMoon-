@@ -18,8 +18,6 @@ client.on('ready', () => {
     '문아 도와줘',
     '업데이트!',
     '노래하는문~!',
-    `${client.users.cache.size}명의 사용자!`
-    `${client.guilds.cache.size}개의 서버!`
   ]
   let state_list_index = 1;
   let change_delay = 5000; // 이건 초입니당. 1000이 1초입니당.
