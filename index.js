@@ -137,6 +137,7 @@ client.on('message', (message) => {
       {name: '문아 청소', desc: '텍스트 지움'},
       {name: '문아 초대코드', desc: '해당서버 초대코드!'},
       {name: '문아 서버정보', desc: '해당서버 정보'},
+      {name: '메시지 로거', desc: '메시지를 수정하거나 삭제하면 봇이 알려줘요'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
