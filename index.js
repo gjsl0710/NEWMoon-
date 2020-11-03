@@ -124,7 +124,7 @@ client.on('message', (message) => {
       .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('${message.author.username} 님이 요청함', img)
+      .setFooter('! 문이봇', img)
 
     message.channel.send(embed)
   } else if(message.content == '문아 도와줘') {
