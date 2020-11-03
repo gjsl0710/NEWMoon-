@@ -9,7 +9,14 @@ const welcomeChannelName = "안녕하세요";
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
+client.on('messageDelete', async message => {
+  message.channel.send(`<@!${message.author.id}> 님이 \`${message.content}\`를 삭제했대요~!!`)
+})
 
+client.on('messageUpdate', async(oldMessage, newMessage) => {
+  if(oldMessage.content === newMessage.content) return // 임베드로 인한 수정같은 경우 
+  oldMessage.channel.send(`<@!${oldMessage.author.id}> 님이 \`${oldMessage.content}\` 를 \`${newMessage.content}\` 로 수정했어요~!`)
+})
 client.on('ready', () => {
   console.log('켰다.');
   client.user.setPresence({ game: { name: '문아 도와줘' }, status: 'online' })
@@ -59,6 +66,11 @@ client.on("messageUpdate", (message) => {
   MessageSave(message, true)
 });
 
+if(message.content === `문아 핑`) { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
+  const timeTaken = Date.now() - message.createdTimestamp; //timeTaken 이라는 함수를 만들고 timeTaken을  핑으로 지정합니다
+  message.channel.send(`${timeTaken}ms`) //서버와의 핑을 출력합니다
+}
+
 client.on('message', (message) => {
   MessageSave(message)
   if(message.author.bot) return;
@@ -72,7 +84,7 @@ client.on('message', (message) => {
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('RANDOM')
     embed.setAuthor('서버정보!')
-    embed.setFooter(`${client.user.username} 님이 요청함`)
+    embed.setFooter(`${message.author.username} 님이 요청함`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
@@ -112,7 +124,7 @@ client.on('message', (message) => {
       .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('${client.user.username} 님이 요청함', img)
+      .setFooter('${message.author.username} 님이 요청함', img)
 
     message.channel.send(embed)
   } else if(message.content == '문아 도와줘') {
@@ -130,7 +142,7 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
       .setAuthor('도움말!', helpImg)
       .setColor('RANDOM')
-      .setFooter(`${client.user.username} 님이 요청함`)
+      .setFooter(`${message.author.username} 님이 요청함`)
       .setTimestamp()
     
     commandList.forEach(x => {
