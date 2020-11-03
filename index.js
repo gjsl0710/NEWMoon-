@@ -124,6 +124,7 @@ client.on('message', (message) => {
       {name: '문아 공지보내', desc: '공지'},
       {name: '문아 청소', desc: '텍스트 지움'},
       {name: '문아 초대코드', desc: '해당서버 초대코드!'},
+      {name: '문아 서버정보', desc: '해당서버 정보'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
