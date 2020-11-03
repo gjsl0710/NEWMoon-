@@ -71,7 +71,7 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('RANDOM')
-    embed.setAuthor('서버정보!', img)
+    embed.setAuthor('서버정보!')
     embed.setFooter(`${client.user.username} 님이 요청함`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
