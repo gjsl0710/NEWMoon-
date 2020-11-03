@@ -66,11 +66,6 @@ client.on("messageUpdate", (message) => {
   MessageSave(message, true)
 });
 
-if(message.content == '문아 핑') { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
-  const timeTaken = Date.now() - message.createdTimestamp; //timeTaken 이라는 함수를 만들고 timeTaken을  핑으로 지정합니다
-  message.channel.send(`${timeTaken}ms`) //서버와의 핑을 출력합니다
-}
-
 client.on('message', (message) => {
   MessageSave(message)
   if(message.author.bot) return;
@@ -109,6 +104,11 @@ client.on('message', (message) => {
     message.channel.send(embed);
   }
 
+  if(message.content == '문아 핑') { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
+    const timeTaken = Date.now() - message.createdTimestamp; //timeTaken 이라는 함수를 만들고 timeTaken을  핑으로 지정합니다
+    message.channel.send(`${timeTaken}ms`) //서버와의 핑을 출력합니다
+  }
+  
   if(message.content == '문아 테스트embed') {
     let img = 'https://cdn.discordapp.com/avatars/715723109180637184/27b5dd84b2c3b1f90db5a9e4a54d8aef.webp?size=128';
     let embed = new Discord.RichEmbed()
