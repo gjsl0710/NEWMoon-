@@ -184,8 +184,8 @@ client.on('message', (message) => {
       let contents = message.content.slice('문아 공지'.length);
       let embed = new Discord.RichEmbed()
         .setAuthor('공지 합니다')
-        .setColor('#186de6')
-        .setFooter(`${client.user.username} 님이 공지보냄`)
+        .setColor('RANDOM')
+        .setFooter(`${message.author.id} 님이 공지보냄`)
         .setTimestamp()
   
       embed.addField('할말: ', contents);
