@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = "";
+const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
 require("moment-duration-format");
 const momenttz = require('moment-timezone');
@@ -22,8 +22,8 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: '문아 도와줘' }, status: 'online' })
 
   let state_list = [
-    '문아 도와줘',
-    '업데이트!',
+      '문아 도와줘',
+      '업데이트!',
     '노래하는문~!',
   ]
   let state_list_index = 1;
