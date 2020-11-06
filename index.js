@@ -103,6 +103,14 @@ client.on('message', (message) => {
     embed.setTimestamp()
     message.channel.send(embed);
   }
+  else if (message.content.startsWith('문아 기능')) {
+    const embed = new Discord.MessageEmbed()
+       .setTitle('🔥 [NEW Split] 🔥')
+       .setDescription(`내용`)
+       .setColor('#00ffff')
+       .setFooter(`${message.author.username}님께 요청받음`)
+    message.channel.send(embed)
+}
 
   if(message.content == '문아 핑') { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
     const timeTaken = Date.now() - message.createdTimestamp; //timeTaken 이라는 함수를 만들고 timeTaken을  핑으로 지정합니다
