@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = process.argv.length == 2 ? process.env.token : "";
+const token = "";
 const moment = require("moment");
 require("moment-duration-format");
 const momenttz = require('moment-timezone');
@@ -22,8 +22,8 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: '문아 도와줘' }, status: 'online' })
 
   let state_list = [
-      '문아 도와줘',
-      '업데이트!',
+    '문아 도와줘',
+    '업데이트!',
     '노래하는문~!',
   ]
   let state_list_index = 1;
@@ -104,14 +104,6 @@ client.on('message', (message) => {
     message.channel.send(embed);
   }
 
-  if (message.content === '문아 봇정보') {
-    const embed = new Discord.MessageEmbed()
-       .setTitle('! 문이봇 의 정보!')
-       .setDescription('이름:문이봇\n\n생일 10:월 9 일\n\n버전:v2\n\n주인:! MOON#6974')
-       .setColor('#00ffff')
-       .setFooter(`${message.author.username}님이 요청함`)
-    message.channel.send(embed)
-  }
   if(message.content == '문아 핑') { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
     const timeTaken = Date.now() - message.createdTimestamp; //timeTaken 이라는 함수를 만들고 timeTaken을  핑으로 지정합니다
     message.channel.send(`${timeTaken}ms 입니당~!`) //서버와의 핑을 출력합니다
