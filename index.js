@@ -146,6 +146,8 @@ client.on('message', (message) => {
       {name: '문아 초대코드', desc: '해당서버 초대코드!'},
       {name: '문아 서버정보', desc: '해당서버 정보'},
       {name: '메시지 로거', desc: '메시지를 수정하거나 삭제하면 봇이 알려줘요'},
+      {name: '문아 문봇초대', desc: '현재 이 봇 초대코드를 드려요!'},
+      {name: '문아 뮤직봇초대', desc: '문 뮤직봇을 초대해요! 아직 테스트중이에요!'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
