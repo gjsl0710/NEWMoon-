@@ -74,6 +74,14 @@ client.on('message', (message) => {
     return message.reply('문!');
   }
 
+  if(message.content == '문아 문봇초대') {
+    return message.reply('https://discord.com/api/oauth2/authorize?client_id=755265826310979625&permissions=8&scope=bot');
+  }
+
+  if(message.content == '문아 뮤직봇초대') {
+    return message.reply('https://discord.com/api/oauth2/authorize?client_id=770971491121758208&permissions=8&scope=bot');
+  }
+
   if(message.content == '문아 서버정보') {
     let embed = new Discord.RichEmbed()
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
