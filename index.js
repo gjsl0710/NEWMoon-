@@ -131,6 +131,7 @@ client.on('message', (message) => {
       .addField('봇 Prefix 🖲️', '문아', true)
       .addField('각종 모듈버전', 'axios/0.21.0 | discord.js/11.6.4 | momentV/2.2.51', true)
       .addField('개발언어', 'JavaScripts | Node.js | discord.js')
+      .addField('ID', 'ClientID : 755265826310979625 | BotID : 755265826310979625')
       .setColor('RANDOM')
       .addBlankField()
       .setTimestamp()
@@ -150,6 +151,7 @@ client.on('message', (message) => {
       {name: '메시지 로거', desc: '메시지를 수정하거나 삭제하면 봇이 알려줘요'},
       {name: '문아 문봇초대', desc: '현재 이 봇 초대코드를 드려요!'},
       {name: '문아 뮤직봇초대', desc: '문 뮤직봇을 초대해요! 아직 테스트중이에요!'},
+      {name: '문아 봇정보', desc: '! 문이봇의 자세한정보!'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
