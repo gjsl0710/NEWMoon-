@@ -132,6 +132,7 @@ client.on('message', (message) => {
       .addField('각종 모듈버전', 'axios/0.21.0 | discord.js/11.6.4 | momentV/2.2.51', true)
       .addField('개발언어', 'JavaScripts | Node.js | discord.js')
       .addField('ID', 'ClientID : 755265826310979625 | BotID : 755265826310979625')
+      .setColor('RANDOM')
       .addBlankField()
       .setTimestamp()
       .setFooter(`${message.author.username}님이 요청함`, img)
