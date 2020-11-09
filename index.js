@@ -117,19 +117,20 @@ client.on('message', (message) => {
     message.channel.send(`${timeTaken}ms 입니당~!`) //서버와의 핑을 출력합니다
   }
 
-  if(message.content == '문아 테스트embed') {
+  if(message.content == '문아 봇정보') {
     let img = 'https://cdn.discordapp.com/avatars/715723109180637184/27b5dd84b2c3b1f90db5a9e4a54d8aef.webp?size=128';
     let embed = new Discord.RichEmbed()
-      .setTitle('! MOON#6974')
-      .setURL('http://www.lomando.com/main.html')
-      .setAuthor('! MOON#2020', img, 'http://www.lomando.com/main.html')
+      .setTitle('! 문이봇 정보')
+      .setURL('https://moonlicense.neocities.org/')
+      .setAuthor('봇 개발자 : ! MOON#6974 (클릭시 라이센스표시)', img, 'https://moonlicense.neocities.org/')
       .setThumbnail(img)
       .addBlankField()
-      .addField('Inline field title', 'Some value here')
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
+      .addField('봇 개발자 💻', 'Discord : ! MOON#6974')
+      .addField('문이봇 생일 🎂', '2020년 10월9일')
+      .addField('봇 버전 🌀', 'V2.0 [Builder : 2.0003589', true)
+      .addField('봇 Prefix 🖲️', '문아', true)
+      .addField('각종 모듈버전', 'axios/0.21.0 | discord.js/11.6.4 | momentV/2.2.51', true)
+      .addField('개발언어', 'JavaScripts | Node.js | discord.js')
       .addBlankField()
       .setTimestamp()
       .setFooter('! 문이봇', img)
