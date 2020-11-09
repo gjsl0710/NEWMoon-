@@ -134,7 +134,7 @@ client.on('message', (message) => {
       .addField('ID', 'ClientID : 755265826310979625 | BotID : 755265826310979625')
       .addBlankField()
       .setTimestamp()
-      .setFooter(`${message.author.username}`, img)
+      .setFooter(`${message.author.username}님이 요청함`, img)
 
     message.channel.send(embed)
   } else if(message.content == '문아 도와줘') {
