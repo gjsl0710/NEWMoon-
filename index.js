@@ -128,14 +128,13 @@ client.on('message', (message) => {
       .addField('봇 개발자 💻', 'Discord : ! MOON#6974')
       .addField('문이봇 생일 🎂', '2020년 10월9일')
       .addField('봇 버전 🌀', 'V2.0 [Builder : 2.0003589', true)
-      .addField('봇 Prefix 🖲️', '문아', true)
+      .addField('봇 Prefix 🖲️', '문아',)
       .addField('각종 모듈버전', 'axios/0.21.0 | discord.js/11.6.4 | momentV/2.2.51', true)
       .addField('개발언어', 'JavaScripts | Node.js | discord.js')
       .addField('ID', 'ClientID : 755265826310979625 | BotID : 755265826310979625')
-      .setColor('RANDOM')
       .addBlankField()
       .setTimestamp()
-      .setFooter('! 문이봇', img)
+      .setFooter(`${message.author.username}`, img)
 
     message.channel.send(embed)
   } else if(message.content == '문아 도와줘') {
