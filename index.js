@@ -131,6 +131,7 @@ client.on('message', (message) => {
       .addField('봇 Prefix 🖲️', '문아', true)
       .addField('각종 모듈버전', 'axios/0.21.0 | discord.js/11.6.4 | momentV/2.2.51', true)
       .addField('개발언어', 'JavaScripts | Node.js | discord.js')
+      .setColor('RANDOM')
       .addBlankField()
       .setTimestamp()
       .setFooter('! 문이봇', img)
