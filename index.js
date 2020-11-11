@@ -44,6 +44,24 @@ client.on('ready', () => {
   changeState();
 });
 
+client.on('message', async message => {
+
+  let blacklisted = ["1", "2"]
+
+  let foundInText = false;
+  for (var i in blacklisted) { 
+    if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true
+  }
+
+  if (foundInText) {
+      const user = message.author.id;
+      const embed = new Discord.MessageEmbed()
+      .setColor('#FF0000')
+      .setDescription(`<@${user}> 욕설은 하지말아주세요..!`);
+      message.channel.send(embed)
+}
+}
+);
 client.on("guildMemberAdd", (member) => {
   const guild = member.guild;
   const newUser = member.user;
