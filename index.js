@@ -38,6 +38,20 @@ client.on('ready', () => {
 });
 
 client.on('message', async message => {
+  if(message.author.bot) return
+  if(!message.guild) return
+
+  console.log(Muted)
+  if(Muted.indexOf(message.author.id) === -1) {
+      Muted.push(message.author.id)
+      setTimeout(() => Muted.shift(message.author.id), (Cooldown * 1000))
+  } else {
+      message.member.roles.add(MuteRole)
+      message.reply('도배하지마아ㅏㅏㅏㅏㅏㅏㅏㅏㅏ')
+  }
+})
+
+client.on('message', async message => {
 
   let blacklisted = ["시발", "씨발", "병신", "븅신", "ㅄ", "ㅅㅂ", "ㅆㅂ", "ㅗ", "ㅇㅇㄴㅇ", "ㅈㄹ", "ㄴㄱㅁ", "니엄마", "느금마"]
 
