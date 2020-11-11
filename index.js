@@ -58,7 +58,10 @@ client.on('message', async message => {
       const embed = new Discord.MessageEmbed()
       .setColor('#FF0000')
       .setDescription(`<@${user}> 욕설은 하지말아주세요..!`);
-      message.channel.send(embed);
+      message.channel.send(embed)
+}
+}
+);
 
 client.on("guildMemberAdd", (member) => {
   const guild = member.guild;
