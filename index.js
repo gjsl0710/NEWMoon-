@@ -47,9 +47,9 @@ client.on('ready', () => {
 client.on('message', async message => {
   if(message.author.bot) return
 
-  if(message.content.startsWith("문아 뭐먹을까")) {
+  if(message.content.startsWith("문아 뭐먹을까?")) {
       db.all(`SELECT * FROM foods`, (err, rows) => {
-          if(rows.length === 0) return message.reply('역제시! 뭐먹을지 "문아 음식추가" 로 정해주세요! ')
+          if(rows.length === 0) return message.reply('**역제시할게요!** 뭐먹을지  ***"문아 음식추가"*** 로 정해주세요! ')
           let rand = Math.floor(Math.random() * rows.length)
           message.channel.send(`${rows[rand].name} 어떤가요?`)
       })
@@ -59,7 +59,7 @@ client.on('message', async message => {
       let addedFood = message.content.split("문아 음식추가")[1] // 명령어 제거
       try { 
           db.run(`INSERT INTO foods(name) VALUES('${addedFood}')`)
-          message.channel.send("추가가(DB) 가 성공적으로 저장되었어요!")
+          message.channel.send("성공적으로 음식을 저장했어요!")
       } catch (err) {
           message.channel.send('오류가 발생했어요! DB를 리붓합니다! 잠시만 기다려주세요..', err)
       }
