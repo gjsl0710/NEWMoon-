@@ -56,8 +56,8 @@ client.on('message', async message => {
   if (foundInText) {
       const user = message.author.id;
       const embed = new Discord.MessageEmbed()
-      .setColor('#FF0000')
-      .setDescription(`<@${user}> 욕설은 하지말아주세요..!`);
+      .setColor('RANDOM')
+      .setDescription(`<@${user}>님이 맨션함!`);
       message.channel.send(embed)
 }
 }
