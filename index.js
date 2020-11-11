@@ -46,7 +46,7 @@ client.on('ready', () => {
 
 client.on('message', async message => {
 
-  let blacklisted = ["1", "2"]
+  let blacklisted = ["", ""]
 
   let foundInText = false;
   for (var i in blacklisted) { 
