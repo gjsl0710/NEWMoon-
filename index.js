@@ -9,6 +9,13 @@ const welcomeChannelName = "안녕하세요";
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
+const sqlite3 = require('sqlite3').verbose()
+const path = require('path')
+const dbPath = path.resolve(__dirname, './data/foods.db')
+const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
+    if(err) return console.log(err)
+})
+
 
 client.on('ready', () => {
   console.log('켰다.');
@@ -36,6 +43,28 @@ client.on('ready', () => {
 
   changeState();
 });
+
+client.on('message', async message => {
+  if(message.author.bot) return
+
+  if(message.content.startsWith("문아 뭐먹을까")) {
+      db.all(`SELECT * FROM foods`, (err, rows) => {
+          if(rows.length === 0) return message.reply('역제시! 뭐먹을지 "문아 음식추가" 로 정해주세요! ')
+          let rand = Math.floor(Math.random() * rows.length)
+          message.channel.send(`${rows[rand].name} 어떤가요?`)
+      })
+  }
+
+  if(message.content.startsWith("문아 음식추가")) {
+      let addedFood = message.content.split("문아 음식추가")[1] // 명령어 제거
+      try { 
+          db.run(`INSERT INTO foods(name) VALUES('${addedFood}')`)
+          message.channel.send("추가가(DB) 가 성공적으로 저장되었어요!")
+      } catch (err) {
+          message.channel.send('오류가 발생했어요! DB를 리붓합니다! 잠시만 기다려주세요..', err)
+      }
+  }
+})
 
 client.on('message', async message => {
   if(message.author.bot) return
@@ -160,6 +189,7 @@ client.on('message', (message) => {
       .addField('각종 모듈버전', 'axios/0.21.0 | discord.js/11.6.4 | momentV/2.2.51', true)
       .addField('개발언어', 'JavaScripts | Node.js | discord.js')
       .addField('ID', 'ClientID : 755265826310979625 | BotID : 755265826310979625')
+      .addField('BOT DB', 'DB가 성공적으로 저장되었어요!')
       .setColor('RANDOM')
       .addBlankField()
       .setTimestamp()
