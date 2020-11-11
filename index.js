@@ -136,6 +136,7 @@ client.on('message', (message) => {
 
     embed.setTimestamp()
     message.channel.send(embed);
+    msg.react('🤔')
   }
 
   if(message.content == '문아 핑') { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
