@@ -46,7 +46,7 @@ client.on('ready', () => {
 
 client.on('message', async message => {
 
-  let blacklisted = ["시발", "씨발", "병신", "븅신", "ㅄ", "ㅅㅂ", "ㅆㅂ", "ㅗ", "ㅇㅇㄴㅇ"]
+  let blacklisted = ["시발", "씨발", "병신", "븅신", "ㅄ", "ㅅㅂ", "ㅆㅂ", "ㅗ", "ㅇㅇㄴㅇ", "ㅈㄹ"]
 
   let foundInText = false;
   for (var i in blacklisted) { 
@@ -57,7 +57,7 @@ client.on('message', async message => {
       const user = message.author.id;
       const embed = new Discord.MessageEmbed()
       .setColor('RANDOM')
-      .setDescription(`<@${user}>님이 맨션함!`);
+      .setDescription(`<@${user}>욕설 또는 비속어를 삼가해주세요..!`);
       message.channel.send(embed)
 }
 }
