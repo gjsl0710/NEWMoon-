@@ -102,10 +102,12 @@ client.on('message', (message) => {
 
   if(message.content == '문아 문봇초대') {
     return message.reply('https://discord.com/api/oauth2/authorize?client_id=755265826310979625&permissions=8&scope=bot');
+    msg.react('🤔')
   }
 
   if(message.content == '문아 뮤직봇초대') {
     return message.reply('https://discord.com/api/oauth2/authorize?client_id=770971491121758208&permissions=8&scope=bot');
+    msg.react('🤔')
   }
 
   if(message.content == '문아 서버정보') {
@@ -136,7 +138,6 @@ client.on('message', (message) => {
 
     embed.setTimestamp()
     message.channel.send(embed);
-    msg.react('🤔')
   }
 
   if(message.content == '문아 핑') { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
