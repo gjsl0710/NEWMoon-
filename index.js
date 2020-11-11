@@ -9,14 +9,7 @@ const welcomeChannelName = "안녕하세요";
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
-client.on('messageDelete', async message => {
-  message.channel.send(`<@!${message.author.id}> 님이 \`${message.content}\`를 삭제했대요~!!`)
-})
 
-client.on('messageUpdate', async(oldMessage, newMessage) => {
-  if(oldMessage.content === newMessage.content) return // 임베드로 인한 수정같은 경우 
-  oldMessage.channel.send(`<@!${oldMessage.author.id}> 님이 \`${oldMessage.content}\` 를 \`${newMessage.content}\` 로 수정했어요~!`)
-})
 client.on('ready', () => {
   console.log('켰다.');
   client.user.setPresence({ game: { name: '문아 도와줘' }, status: 'online' })
