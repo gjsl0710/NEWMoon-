@@ -49,8 +49,8 @@ client.on('message', async message => {
   if (foundInText) {
       const user = message.author.id;
       const embed = new Discord.MessageEmbed()
-      .setColor('RANDOM')
-      .setDescription(`<@${user}>욕설 또는 비속어를 삼가해주세요..!`);
+      .setColor('#FF0000')
+      .setDescription(`<@${user}>님 욕설감지!`);
       message.channel.send(embed)
 }
 }
