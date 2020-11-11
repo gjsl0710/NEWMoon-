@@ -49,7 +49,7 @@ client.on('message', async message => {
 
   if(message.content.startsWith("문아 뭐먹을까?")) {
       db.all(`SELECT * FROM foods`, (err, rows) => {
-          if(rows.length === 0) return message.reply('**역제시할게요!** 뭐먹을지  ***"문아 음식추가"*** 로 정해주세요! ')
+          if(rows.length === 0) return message.reply('**역제시할게요!** 뭐먹을지  **"문아 음식추가"** 로 정해주세요! ')
           let rand = Math.floor(Math.random() * rows.length)
           message.channel.send(`${rows[rand].name} 어떤가요?`)
       })
@@ -127,6 +127,10 @@ client.on('message', (message) => {
 
   if(message.content == '문아') {
     return message.reply('문!');
+  }
+
+  if(message.content == '싫어') {
+    return message.reply('아 그냥 먹어');
   }
 
   if(message.content == '문아 문봇초대') {
@@ -210,6 +214,7 @@ client.on('message', (message) => {
       {name: '문아 문봇초대', desc: '현재 이 봇 초대코드를 드려요!'},
       {name: '문아 뮤직봇초대', desc: '문 뮤직봇을 초대해요! 아직 테스트중이에요!'},
       {name: '문아 봇정보', desc: '! 문이봇의 자세한정보!'},
+      {name: '문아 뭐먹을까?', desc: '문이봇이 뭐먹을지 정해줘요!'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
