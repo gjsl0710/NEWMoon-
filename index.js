@@ -46,7 +46,7 @@ client.on('ready', () => {
 
 client.on('message', async message => {
 
-  let blacklisted = ["", ""]
+  let blacklisted = ["시발", "씨발", "병신", "븅신", "ㅄ", "ㅅㅂ", "ㅆㅂ", "ㅗ", "ㅇㅇㄴㅇ"]
 
   let foundInText = false;
   for (var i in blacklisted) { 
