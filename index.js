@@ -47,7 +47,7 @@ client.on('message', async message => {
       setTimeout(() => Muted.shift(message.author.id), (Cooldown * 1000))
   } else {
       message.member.roles.add(MuteRole)
-      message.reply('도배하지마아ㅏㅏㅏㅏㅏㅏㅏㅏㅏ')
+      message.reply('도배방지!')
   }
 })
 
